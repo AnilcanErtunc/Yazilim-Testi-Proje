@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SoruDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_Konu">
+    <Key>
+      <PropertyRef Name="konu_ıd" />
+    </Key>
+    <Property Name="konu_ıd" Type="Int32" Nullable="false" />
+    <Property Name="konu_adı" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="soru_ıd" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Soru" Relationship="Self.FK_tbl_Konu_tbl_Soru" FromRole="tbl_Konu" ToRole="tbl_Soru" />
+  </EntityType>
+  <EntityType Name="tbl_Kullanıcı">
+    <Key>
+      <PropertyRef Name="kullanıcı_ıd" />
+    </Key>
+    <Property Name="kullanıcı_ad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="kullancı_sifre" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="kullanıcı_ıd" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Ogrenci" Relationship="Self.FK_tbl_Ogrenci_tbl_Kullanıcı" FromRole="tbl_Kullanıcı" ToRole="tbl_Ogrenci" />
+    <NavigationProperty Name="tbl_Ogretmen" Relationship="Self.FK_tbl_Ogretmen_tbl_Kullanıcı" FromRole="tbl_Kullanıcı" ToRole="tbl_Ogretmen" />
+  </EntityType>
+  <EntityType Name="tbl_Ogrenci">
+    <Key>
+      <PropertyRef Name="ogrenci_ıd" />
+    </Key>
+    <Property Name="ogrenci_ıd" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Kullanıcı" Relationship="Self.FK_tbl_Ogrenci_tbl_Kullanıcı" FromRole="tbl_Ogrenci" ToRole="tbl_Kullanıcı" />
+    <NavigationProperty Name="tbl_Sınav" Relationship="Self.FK_tbl_Sınav_tbl_Ogrenci" FromRole="tbl_Ogrenci" ToRole="tbl_Sınav" />
+  </EntityType>
+  <EntityType Name="tbl_Ogretmen">
+    <Key>
+      <PropertyRef Name="ogretmen_ıd" />
+    </Key>
+    <Property Name="ogretmen_ıd" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Kullanıcı" Relationship="Self.FK_tbl_Ogretmen_tbl_Kullanıcı" FromRole="tbl_Ogretmen" ToRole="tbl_Kullanıcı" />
+  </EntityType>
+  <EntityType Name="tbl_Sınav">
+    <Key>
+      <PropertyRef Name="sınav_ıd" />
+    </Key>
+    <Property Name="sınav_ıd" Type="Int32" Nullable="false" />
+    <Property Name="ogrenci_ıd" Type="Int32" Nullable="false" />
+    <Property Name="basarılı_konu_ıd" Type="Int32" />
+    <Property Name="basarısız_konu_ıd" Type="Int32" />
+    <Property Name="basarısız_konu_ıd2" Type="Int32" />
+    <NavigationProperty Name="tbl_Ogrenci" Relationship="Self.FK_tbl_Sınav_tbl_Ogrenci" FromRole="tbl_Sınav" ToRole="tbl_Ogrenci" />
+  </EntityType>
+  <EntityType Name="tbl_Soru">
+    <Key>
+      <PropertyRef Name="soru_ıd" />
+    </Key>
+    <Property Name="soru_ıd" Type="Int32" Nullable="false" />
+    <Property Name="soru_text" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sık_1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="sık_2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="sık_3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="sık_dogru" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Konu" Relationship="Self.FK_tbl_Konu_tbl_Soru" FromRole="tbl_Soru" ToRole="tbl_Konu" />
+  </EntityType>
+  <Association Name="FK_tbl_Konu_tbl_Soru">
+    <End Role="tbl_Soru" Type="Self.tbl_Soru" Multiplicity="1" />
+    <End Role="tbl_Konu" Type="Self.tbl_Konu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Soru">
+        <PropertyRef Name="soru_ıd" />
+      </Principal>
+      <Dependent Role="tbl_Konu">
+        <PropertyRef Name="soru_ıd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Ogrenci_tbl_Kullanıcı">
+    <End Role="tbl_Kullanıcı" Type="Self.tbl_Kullanıcı" Multiplicity="1" />
+    <End Role="tbl_Ogrenci" Type="Self.tbl_Ogrenci" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanıcı">
+        <PropertyRef Name="kullanıcı_ıd" />
+      </Principal>
+      <Dependent Role="tbl_Ogrenci">
+        <PropertyRef Name="ogrenci_ıd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Ogretmen_tbl_Kullanıcı">
+    <End Role="tbl_Kullanıcı" Type="Self.tbl_Kullanıcı" Multiplicity="1" />
+    <End Role="tbl_Ogretmen" Type="Self.tbl_Ogretmen" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanıcı">
+        <PropertyRef Name="kullanıcı_ıd" />
+      </Principal>
+      <Dependent Role="tbl_Ogretmen">
+        <PropertyRef Name="ogretmen_ıd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Sınav_tbl_Ogrenci">
+    <End Role="tbl_Ogrenci" Type="Self.tbl_Ogrenci" Multiplicity="1" />
+    <End Role="tbl_Sınav" Type="Self.tbl_Sınav" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Ogrenci">
+        <PropertyRef Name="ogrenci_ıd" />
+      </Principal>
+      <Dependent Role="tbl_Sınav">
+        <PropertyRef Name="ogrenci_ıd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SoruDataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="tbl_Konu" EntityType="Self.tbl_Konu" />
+    <EntitySet Name="tbl_Kullanıcı" EntityType="Self.tbl_Kullanıcı" />
+    <EntitySet Name="tbl_Ogrenci" EntityType="Self.tbl_Ogrenci" />
+    <EntitySet Name="tbl_Ogretmen" EntityType="Self.tbl_Ogretmen" />
+    <EntitySet Name="tbl_Sınav" EntityType="Self.tbl_Sınav" />
+    <EntitySet Name="tbl_Soru" EntityType="Self.tbl_Soru" />
+    <AssociationSet Name="FK_tbl_Konu_tbl_Soru" Association="Self.FK_tbl_Konu_tbl_Soru">
+      <End Role="tbl_Soru" EntitySet="tbl_Soru" />
+      <End Role="tbl_Konu" EntitySet="tbl_Konu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Ogrenci_tbl_Kullanıcı" Association="Self.FK_tbl_Ogrenci_tbl_Kullanıcı">
+      <End Role="tbl_Kullanıcı" EntitySet="tbl_Kullanıcı" />
+      <End Role="tbl_Ogrenci" EntitySet="tbl_Ogrenci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Ogretmen_tbl_Kullanıcı" Association="Self.FK_tbl_Ogretmen_tbl_Kullanıcı">
+      <End Role="tbl_Kullanıcı" EntitySet="tbl_Kullanıcı" />
+      <End Role="tbl_Ogretmen" EntitySet="tbl_Ogretmen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Sınav_tbl_Ogrenci" Association="Self.FK_tbl_Sınav_tbl_Ogrenci">
+      <End Role="tbl_Ogrenci" EntitySet="tbl_Ogrenci" />
+      <End Role="tbl_Sınav" EntitySet="tbl_Sınav" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
