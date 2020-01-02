@@ -1,0 +1,18 @@
+C:\Users\LENOVO\source\repos\Yaızlım Test Projesi\Yaızlım Test Projesi\bin\Debug\Yaızlım Test Projesi.exe.config
+C:\Users\LENOVO\source\repos\Yaızlım Test Projesi\Yaızlım Test Projesi\bin\Debug\Yaızlım Test Projesi.exe
+C:\Users\LENOVO\source\repos\Yaızlım Test Projesi\Yaızlım Test Projesi\bin\Debug\Yaızlım Test Projesi.pdb
+C:\Users\LENOVO\source\repos\Yaızlım Test Projesi\Yaızlım Test Projesi\bin\Debug\EntityFramework.dll
+C:\Users\LENOVO\source\repos\Yaızlım Test Projesi\Yaızlım Test Projesi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\LENOVO\source\repos\Yaızlım Test Projesi\Yaızlım Test Projesi\bin\Debug\EntityFramework.xml
+C:\Users\LENOVO\source\repos\Yaızlım Test Projesi\Yaızlım Test Projesi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\LENOVO\source\repos\Yaızlım Test Projesi\Yaızlım Test Projesi\obj\Debug\Yaızlım Test Projesi.csprojAssemblyReference.cache
+C:\Users\LENOVO\source\repos\Yaızlım Test Projesi\Yaızlım Test Projesi\obj\Debug\Yaızlım_Test_Projesi.Form1.resources
+C:\Users\LENOVO\source\repos\Yaızlım Test Projesi\Yaızlım Test Projesi\obj\Debug\Yaızlım_Test_Projesi.Properties.Resources.resources
+C:\Users\LENOVO\source\repos\Yaızlım Test Projesi\Yaızlım Test Projesi\obj\Debug\Yaızlım Test Projesi.csproj.GenerateResource.cache
+C:\Users\LENOVO\source\repos\Yaızlım Test Projesi\Yaızlım Test Projesi\obj\Debug\Yaızlım Test Projesi.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\source\repos\Yaızlım Test Projesi\Yaızlım Test Projesi\obj\Debug\Yaızlım Test Projesi.csproj.CopyComplete
+C:\Users\LENOVO\source\repos\Yaızlım Test Projesi\Yaızlım Test Projesi\obj\Debug\Yaızlım Test Projesi.exe
+C:\Users\LENOVO\source\repos\Yaızlım Test Projesi\Yaızlım Test Projesi\obj\Debug\Yaızlım Test Projesi.pdb
+C:\Users\LENOVO\source\repos\Yaızlım Test Projesi\Yaızlım Test Projesi\obj\Debug\Yaızlım_Test_Projesi.SoruEkranıForm.resources
+C:\Users\LENOVO\source\repos\Yaızlım Test Projesi\Yaızlım Test Projesi\obj\Debug\Yaızlım_Test_Projesi.SoruEklemeEkranı.resources
+C:\Users\LENOVO\source\repos\Yaızlım Test Projesi\Yaızlım Test Projesi\obj\Debug\Yaızlım_Test_Projesi.GenelBasariGrafikForm.resources
